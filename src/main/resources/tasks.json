@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Abendessen zubreiten",
+    "description": "Täglich das Abendessen zubereiten.",
+    "weight": 4
+  },
+  {
+    "name": "Wäsche abnhehmen + bügeln",
+    "description": "Die Wäsche abnehmen und bügeln.",
+    "weight": 3
+  },
+  {
+    "name": "Staubsaugen",
+    "description": "Zweimal wöchentlich Staubsaugen in der ganzen Wohnung.",
+    "weight": 3
+  },
+  {
+    "name": "Abwaschen",
+    "description": "Den Abwasch bei Bedarf übernehmen.",
+    "weight": 1
+  },
+  {
+    "name": "Frühstück zubereiten",
+    "description": "Täglich das Frühstück zubereiten.",
+    "weight": 2
+  },
+  {
+    "name": "Katzenklo",
+    "description": "Einmal täglich Katzenklo leeren.",
+    "weight": 1
+  },
+  {
+    "name": "Mittagessen am WE",
+    "description": "Am Wochenende das Mittagessen zubereiten.",
+    "weight": 3
+  },
+  {
+    "name": "Müll Entsorgung",
+    "description": "Den Müll runterbringen.",
+    "weight": 1
+  },
+  {
+    "name": "Klo und Bad putzen",
+    "description": "Das Klo und das Bad putzen.",
+    "weight": 3
+  },
+  {
+    "name": "Wäsche waschen + aufhängen",
+    "description": "Die Wäsche waschen und nach max. 1 Stunde aufhängen.",
+    "weight": 2
+  }
+]
