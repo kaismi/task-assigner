@@ -5,7 +5,6 @@ import at.kaismi.domain.Task;
 import at.kaismi.repository.NameRepository;
 import at.kaismi.repository.TaskRepository;
 import at.kaismi.service.TasksAssigner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Objects;
 import java.util.Set;
 
-@RequestMapping("/tasks") @RestController public class TasksRestController {
+@RequestMapping("/tasks")
+@RestController
+public class TasksRestController {
 
-    @Autowired private TasksAssigner randomTasksAssigner;
+    private TasksAssigner randomTasksAssigner;
+
+    public TasksRestController(TasksAssigner randomTasksAssigner) {
+        this.randomTasksAssigner = randomTasksAssigner;
+    }
 
     @RequestMapping(path = "assign/random", method = RequestMethod.GET)
     public Set<AssignedTasksUnit> getRandomAssignedTasksUnits() {
@@ -30,7 +35,8 @@ import java.util.Set;
         return randomTasksAssigner.assignTasks(NameRepository.names, TaskRepository.tasks);
     }
 
-    @RequestMapping(method = RequestMethod.GET) public Set<Task> getTasks() {
+    @RequestMapping(method = RequestMethod.GET)
+    public Set<Task> getTasks() {
         return TaskRepository.tasks;
     }
 }
