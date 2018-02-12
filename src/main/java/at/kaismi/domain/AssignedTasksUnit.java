@@ -9,6 +9,13 @@ public class AssignedTasksUnit {
     private String name;
     private Set<Task> assignedTasks = Sets.newHashSet();
 
+    public AssignedTasksUnit() {
+    }
+
+    public AssignedTasksUnit(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

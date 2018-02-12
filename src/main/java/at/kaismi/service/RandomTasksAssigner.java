@@ -38,10 +38,9 @@ public class RandomTasksAssigner implements TasksAssigner {
             for (String name : namesList) {
                 AssignedTasksUnit assignedTasksUnit = nameAssignedTasksUnitMap.get(name);
                 if (Objects.isNull(assignedTasksUnit)) {
-                    assignedTasksUnit = new AssignedTasksUnit();
-                    assignedTasksUnit.setName(name);
-
+                    assignedTasksUnit = new AssignedTasksUnit(name);
                     assignedTasksUnit.getAssignedTasks().add(t);
+
                     nameAssignedTasksUnitMap.put(name, assignedTasksUnit);
                     break;
                 } else {
