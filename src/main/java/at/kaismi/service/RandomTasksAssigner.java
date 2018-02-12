@@ -2,6 +2,9 @@ package at.kaismi.service;
 
 import at.kaismi.domain.AssignedTasksUnit;
 import at.kaismi.domain.Task;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -23,11 +26,10 @@ public class RandomTasksAssigner implements TasksAssigner {
         int sumWeights = tasks.stream().mapToInt(Task::getWeight).sum();
         int maxWeightForName = (sumWeights / countNames) + 1;
 
-        Map<String, AssignedTasksUnit> nameAssignedTasksUnitMap = new HashMap<>();
+        Map<String, AssignedTasksUnit> nameAssignedTasksUnitMap = Maps.newHashMap();
+        List<String> namesList = Lists.newArrayList(names);
 
-        List<String> namesList = new ArrayList<>(names);
-
-        List<Task> taskList = new ArrayList<>(tasks);
+        List<Task> taskList = Lists.newArrayList(tasks);
         taskList.sort(
                 (t1, t2) -> (t1.getWeight() < t2.getWeight()) ? 1 : ((t1.getWeight() == t2.getWeight()) ? 0 : -1));
 
@@ -52,7 +54,7 @@ public class RandomTasksAssigner implements TasksAssigner {
             }
         });
 
-        return new HashSet<>(nameAssignedTasksUnitMap.values());
+        return Sets.newHashSet(nameAssignedTasksUnitMap.values());
     }
 
     private void validateTasks(Set<Task> tasks) {
@@ -72,7 +74,6 @@ public class RandomTasksAssigner implements TasksAssigner {
 
     private boolean hasEveryNameTasksAssigned(List<String> namesList,
                                               Map<String, AssignedTasksUnit> nameAssignedTasksUnitMap) {
-
         for (String n : namesList) {
             AssignedTasksUnit assignedTasksUnit = nameAssignedTasksUnitMap.get(n);
             if (Objects.isNull(assignedTasksUnit)) {
