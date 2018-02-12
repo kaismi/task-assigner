@@ -17,13 +17,15 @@ import java.io.InputStream;
 import java.util.Objects;
 import java.util.Set;
 
-@SpringBootApplication public class Application {
+@SpringBootApplication
+public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean public CommandLineRunner commandLineRunner() {
+    @Bean
+    public CommandLineRunner commandLineRunner() {
         return args -> {
             ObjectMapper mapper = new ObjectMapper();
 
@@ -46,7 +48,7 @@ import java.util.Set;
 
     private InputStream getInputStream(String jsonDir, String resourceName) throws FileNotFoundException {
         InputStream inputStream;
-        if (!Objects.isNull(jsonDir)) {
+        if (Objects.nonNull(jsonDir)) {
             inputStream = new FileInputStream(new File(jsonDir + "/" + resourceName));
         } else {
             inputStream = TypeReference.class.getResourceAsStream("/" + resourceName);
