@@ -39,22 +39,20 @@ public class Task {
         this.weight = weight;
     }
 
-    @Override public boolean equals(Object o) {
+    @Override
+    public boolean equals(Object o) {
         if (this == o)
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
 
-        Task task = (Task)o;
+        Task task = (Task) o;
 
         return name.equals(task.name);
     }
 
-    @Override public int hashCode() {
+    @Override
+    public int hashCode() {
         return name.hashCode();
-    }
-
-    @Override public String toString() {
-        return "Task{" + "name='" + name + '\'' + ", description='" + description + '\'' + ", weight=" + weight + '}';
     }
 }

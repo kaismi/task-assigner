@@ -4,8 +4,6 @@ import at.kaismi.domain.AssignedTasksUnit;
 import at.kaismi.domain.Task;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.temporal.WeekFields;
 import java.util.*;
 
 @Service
@@ -18,24 +16,12 @@ public class RandomTasksAssigner implements TasksAssigner {
     }
 
     public Set<AssignedTasksUnit> assignTasks(Set<String> names, Set<Task> tasks) {
-        Objects.requireNonNull(names);
-        if (names.isEmpty()) {
-            throw new IllegalArgumentException("Empty names.");
-        }
-        Objects.requireNonNull(tasks);
-        tasks.forEach(t -> taskValidator.validateTask(t));
+        validateNames(names);
+        validateTasks(tasks);
 
         int countNames = names.size();
         int sumWeights = tasks.stream().mapToInt(Task::getWeight).sum();
         int maxWeightForName = (sumWeights / countNames) + 1;
-
-        LocalDate date = LocalDate.now();
-        WeekFields weekFields = WeekFields.of(Locale.getDefault());
-        int week = date.get(weekFields.weekOfWeekBasedYear());
-
-        // TODO
-        Date firstOfWeek = null;
-        Date lastOfWeek = null;
 
         Map<String, AssignedTasksUnit> nameAssignedTasksUnitMap = new HashMap<>();
 
@@ -51,10 +37,7 @@ public class RandomTasksAssigner implements TasksAssigner {
                 AssignedTasksUnit assignedTasksUnit = nameAssignedTasksUnitMap.get(name);
                 if (Objects.isNull(assignedTasksUnit)) {
                     assignedTasksUnit = new AssignedTasksUnit();
-                    assignedTasksUnit.setWeek(week);
                     assignedTasksUnit.setName(name);
-                    assignedTasksUnit.setValidFrom(firstOfWeek);
-                    assignedTasksUnit.setValidTo(lastOfWeek);
 
                     assignedTasksUnit.getAssignedTasks().add(t);
                     nameAssignedTasksUnitMap.put(name, assignedTasksUnit);
@@ -70,6 +53,21 @@ public class RandomTasksAssigner implements TasksAssigner {
         });
 
         return new HashSet<>(nameAssignedTasksUnitMap.values());
+    }
+
+    private void validateTasks(Set<Task> tasks) {
+        Objects.requireNonNull(tasks);
+        if (tasks.isEmpty()) {
+            throw new IllegalArgumentException("Empty tasks.");
+        }
+        tasks.forEach(t -> taskValidator.validateTask(t));
+    }
+
+    private void validateNames(Set<String> names) {
+        Objects.requireNonNull(names);
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException("Empty names.");
+        }
     }
 
     private boolean hasEveryNameTasksAssigned(List<String> namesList,

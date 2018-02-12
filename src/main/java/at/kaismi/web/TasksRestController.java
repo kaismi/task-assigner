@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Objects;
 import java.util.Set;
 
 @RequestMapping("/tasks")
@@ -24,14 +23,6 @@ public class TasksRestController {
 
     @RequestMapping(path = "assign/random", method = RequestMethod.GET)
     public Set<AssignedTasksUnit> getRandomAssignedTasksUnits() {
-        if (Objects.isNull(TaskRepository.tasks)) {
-            throw new IllegalStateException("No tasks.");
-        }
-
-        if (Objects.isNull(NameRepository.names)) {
-            throw new IllegalStateException("No names.");
-        }
-
         return randomTasksAssigner.assignTasks(NameRepository.names, TaskRepository.tasks);
     }
 
