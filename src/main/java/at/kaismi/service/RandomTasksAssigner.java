@@ -2,16 +2,20 @@ package at.kaismi.service;
 
 import at.kaismi.domain.AssignedTasksUnit;
 import at.kaismi.domain.Task;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
 import java.util.*;
 
-@Service public class RandomTasksAssigner implements TasksAssigner {
+@Service
+public class RandomTasksAssigner implements TasksAssigner {
 
-    @Autowired private TaskValidator taskValidator;
+    private TaskValidator taskValidator;
+
+    public RandomTasksAssigner(TaskValidator taskValidator) {
+        this.taskValidator = taskValidator;
+    }
 
     public Set<AssignedTasksUnit> assignTasks(Set<String> names, Set<Task> tasks) {
         Objects.requireNonNull(names);
@@ -69,7 +73,7 @@ import java.util.*;
     }
 
     private boolean hasEveryNameTasksAssigned(List<String> namesList,
-            Map<String, AssignedTasksUnit> nameAssignedTasksUnitMap) {
+                                              Map<String, AssignedTasksUnit> nameAssignedTasksUnitMap) {
 
         for (String n : namesList) {
             AssignedTasksUnit assignedTasksUnit = nameAssignedTasksUnitMap.get(n);
