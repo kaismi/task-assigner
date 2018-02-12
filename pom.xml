@@ -22,6 +22,9 @@
         <commons-lang3.version>3.6</commons-lang3.version>
         <assertj-core.version>3.8.0</assertj-core.version>
         <spring-boot-maven-plugin.version>1.5.9.RELEASE</spring-boot-maven-plugin.version>
+        <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
+        <springfox-swagger-ui.version>2.6.1</springfox-swagger-ui.version>
+        <jolokia-core.version>1.5.0</jolokia-core.version>
     </properties>
 
     <build>
@@ -61,9 +64,28 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-core</artifactId>
+            <version>${jolokia-core.version}</version>
         </dependency>
         <!-- Test -->
         <dependency>
