@@ -6,7 +6,7 @@
 
     <groupId>at.kaismi</groupId>
     <artifactId>task-assigner</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>master-SNAPSHOT</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
