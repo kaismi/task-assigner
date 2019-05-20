@@ -1,6 +1,6 @@
-package at.kaismi.service;
+package at.kaismi.taskassigner.service;
 
-import at.kaismi.domain.Task;
+import at.kaismi.taskassigner.domain.Task;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;

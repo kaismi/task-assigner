@@ -1,7 +1,7 @@
-package at.kaismi.service;
+package at.kaismi.taskassigner.service;
 
-import at.kaismi.domain.AssignedTasksUnit;
-import at.kaismi.domain.Task;
+import at.kaismi.taskassigner.domain.AssignedTasksUnit;
+import at.kaismi.taskassigner.domain.Task;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;

@@ -1,6 +1,6 @@
-package at.kaismi.web;
+package at.kaismi.taskassigner.web;
 
-import at.kaismi.repository.NameRepository;
+import at.kaismi.taskassigner.repository.NameRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

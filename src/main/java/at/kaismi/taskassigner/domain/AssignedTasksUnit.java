@@ -1,4 +1,4 @@
-package at.kaismi.domain;
+package at.kaismi.taskassigner.domain;
 
 import com.google.common.collect.Sets;
 

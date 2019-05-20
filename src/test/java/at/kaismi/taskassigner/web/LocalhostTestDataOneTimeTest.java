@@ -1,6 +1,6 @@
-package at.kaismi.web;
+package at.kaismi.taskassigner.web;
 
-import at.kaismi.domain.Task;
+import at.kaismi.taskassigner.domain.Task;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;

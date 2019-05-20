@@ -1,8 +1,8 @@
-package at.kaismi;
+package at.kaismi.taskassigner;
 
-import at.kaismi.domain.Task;
-import at.kaismi.repository.NameRepository;
-import at.kaismi.repository.TaskRepository;
+import at.kaismi.taskassigner.domain.Task;
+import at.kaismi.taskassigner.repository.NameRepository;
+import at.kaismi.taskassigner.repository.TaskRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
