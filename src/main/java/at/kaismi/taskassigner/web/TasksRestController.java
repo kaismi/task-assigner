@@ -1,10 +1,10 @@
-package at.kaismi.web;
+package at.kaismi.taskassigner.web;
 
-import at.kaismi.domain.AssignedTasksUnit;
-import at.kaismi.domain.Task;
-import at.kaismi.repository.NameRepository;
-import at.kaismi.repository.TaskRepository;
-import at.kaismi.service.TasksAssigner;
+import at.kaismi.taskassigner.domain.AssignedTasksUnit;
+import at.kaismi.taskassigner.domain.Task;
+import at.kaismi.taskassigner.repository.NameRepository;
+import at.kaismi.taskassigner.repository.TaskRepository;
+import at.kaismi.taskassigner.service.TasksAssigner;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

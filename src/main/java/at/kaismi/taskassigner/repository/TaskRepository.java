@@ -1,6 +1,6 @@
-package at.kaismi.repository;
+package at.kaismi.taskassigner.repository;
 
-import at.kaismi.domain.Task;
+import at.kaismi.taskassigner.domain.Task;
 import com.google.common.collect.Sets;
 import org.springframework.stereotype.Repository;
 
