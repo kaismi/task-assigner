@@ -1,13 +1,12 @@
 package at.kaismi.taskassigner.domain;
 
-import com.google.common.collect.Sets;
-
+import java.util.HashSet;
 import java.util.Set;
 
 public class AssignedTasksUnit {
 
     private String name;
-    private Set<Task> assignedTasks = Sets.newHashSet();
+    private Set<Task> assignedTasks = new HashSet<>();
 
     public AssignedTasksUnit() {
     }

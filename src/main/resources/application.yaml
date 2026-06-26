@@ -1,6 +1,5 @@
-security:
+spring:
+  security:
     user:
-        name: foo
-        password: bar
-
-
+      name: foo
+      password: bar

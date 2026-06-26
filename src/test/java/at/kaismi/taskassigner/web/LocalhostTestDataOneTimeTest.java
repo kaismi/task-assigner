@@ -1,31 +1,19 @@
 package at.kaismi.taskassigner.web;
 
 import at.kaismi.taskassigner.domain.Task;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.context.annotation.Bean;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Ignore // Remove if your service is running and start test to generate example data
-@RunWith(SpringRunner.class) public class LocalhostTestDataOneTimeTest {
+@Disabled // Remove if your service is running and start test to generate example data
+public class LocalhostTestDataOneTimeTest {
 
-    @TestConfiguration public static class LocalhostTestDataOneTimeTestConfig {
-
-        @Bean public TestRestTemplate restTemplate() {
-            return new TestRestTemplate("foo", "bar");
-        }
-    }
-
-    @Autowired private TestRestTemplate testRestTemplate;
+    private final RestTemplate testRestTemplate = new RestTemplate();
 
     @Test public void createTestData() {
         createTasks();
